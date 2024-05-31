@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">RickAndMortyGuide</string>
+    <string name="character_name">Character Name</string>
+    <string name="status">Status</string>
+    <string name="dead_or_alive" />
+    <string name="last_known_location">Last known location:</string>
+    <string name="earth_replacement_dimension">Earth (Replacement Dimension)</string>
+    <string name="iv_character">ImageView Character</string>
+    <string name="characters">Characters</string>
+    <string name="fab">Floating Action Button</string>
+    <string name="rick_morty"><![CDATA[Rick & Morty]]></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
