@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/characterFragment">
+
     <fragment
         android:id="@+id/characterFragment"
-        android:name="com.example.rickandmortyguide.ui.CharacterFragment"
+        android:name="com.example.rickandmortyguide.ui.character.CharacterFragment"
         android:label="fragment_character"
-        tools:layout="@layout/fragment_character" />
+        tools:layout="@layout/fragment_character" >
+        <action
+            android:id="@+id/to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/introScreenFragment"
+        android:name="com.example.rickandmortyguide.ui.introscreen.IntroScreenFragment"
+        android:label="IntroScreenFragment" >
+        <action
+            android:id="@+id/to_characterFragment"
+            app:destination="@id/characterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.example.rickandmortyguide.ui.character.detail.CharacterDetailFragment"
+        android:label="fragment_character_detail"
+        tools:layout="@layout/fragment_character_detail" >
+        <argument
+            android:name="idCharacter"
+            app:argType="integer"
+            android:defaultValue="21" />
+    </fragment>
+
 </navigation>

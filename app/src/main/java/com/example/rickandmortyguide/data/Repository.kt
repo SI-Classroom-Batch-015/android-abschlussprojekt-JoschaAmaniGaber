@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.rickandmortyguide.data.local.CharacterDatabase
 import com.example.rickandmortyguide.data.model.Character
 import com.example.rickandmortyguide.data.model.Info
+import com.example.rickandmortyguide.data.remote.ApiStatus
 import com.example.rickandmortyguide.data.remote.RickApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -20,15 +21,35 @@ class Repository(
 
     val characters: LiveData<List<Character>> get() = database.dao.getAll()
 
-    suspend fun loadCharacters() {
+    private val _selectedCharacter = MutableLiveData<Character>()
+    val selectedCharacter: LiveData<Character> get() = _selectedCharacter
+
+    suspend fun getCharacters() {
         try {
+            ApiStatus.LOADING
             withContext(Dispatchers.IO) {
                 val characters = service.retrofitService.getCharacters().results
                 database.dao.insertAll(characters)
-                Log.d(TAG, "Loaded Characters")
+                ApiStatus.DONE
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Could not load characters: $e")
+            ApiStatus.ERROR
         }
+    }
+
+    suspend fun getCharacterById(id: Int) {
+        try {
+            withContext(Dispatchers.IO) {
+                val character = service.retrofitService.getCharacterById(id)
+                _selectedCharacter.postValue(character)
+                Log.e(TAG, "Loaded Character")
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Could not load characterById: $e from A")
+        }
+    }
+
+    suspend fun getCharacter(idCharacter: Int) {
+        database.dao.getCharacterById(idCharacter)
     }
 }

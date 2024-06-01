@@ -11,4 +11,5 @@
     <string name="rick_morty"><![CDATA[Rick & Morty]]></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fab_download">fab_download</string>
 </resources>

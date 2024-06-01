@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/morty"
+    android:background="@color/primary"
     tools:context=".MainActivity">
 
 
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="108dp"
         android:src="@drawable/rick_and_morty"
-        android:background="@drawable/card_border"
+        android:background="@drawable/anim_gradient_header"
         android:layout_margin="8dp"
         android:padding="8dp"
         android:scaleType="fitCenter"
@@ -27,7 +27,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.rickandmortyguide.ui.CharacterFragment"
+        android:name="com.example.rickandmortyguide.ui.character.CharacterFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,5 +36,21 @@
         app:layout_constraintTop_toBottomOf="@id/iv_rick_header"
         />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/rick_anim"
+        android:alpha="0"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:scaleType="centerInside"
+        android:background="@color/transparent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_rick_header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_rawRes="@raw/rick_anim"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

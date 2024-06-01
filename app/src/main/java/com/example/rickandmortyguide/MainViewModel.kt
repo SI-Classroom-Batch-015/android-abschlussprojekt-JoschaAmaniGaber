@@ -8,8 +8,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortyguide.data.Repository
 import com.example.rickandmortyguide.data.local.getDatabase
+import com.example.rickandmortyguide.data.model.Character
 import com.example.rickandmortyguide.data.remote.ApiStatus
 import com.example.rickandmortyguide.data.remote.RickApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 const val TAG = "MainViewModel"
@@ -19,20 +21,27 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     private val database = getDatabase(application)
     private val repository = Repository(RickApi, database)
 
+    private val waitingTime: Long = 888 // millieseconds
+    private var job: Job? = null
+
     private val _loading = MutableLiveData<ApiStatus>()
     val loading: LiveData<ApiStatus> get() = _loading
 
     val characters = repository.characters
 
+    private var _character = MutableLiveData<Character>()
+    val character: LiveData<Character> get() = _character
+
     init {
-        loadCharacters()
+        getCharacters()
     }
 
-    private fun loadCharacters() {
+    private fun getCharacters() {
         viewModelScope.launch {
             _loading.value = ApiStatus.LOADING
             try {
-                repository.loadCharacters()
+                repository.getCharacters()
+
                 _loading.value = ApiStatus.DONE
             } catch (e: Exception) {
                 Log.e(TAG, "Error loading Data $e")
@@ -45,6 +54,23 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
             }
 
         }
+    }
+
+    fun getCharacterById(id: Int): Character? {
+        return characters.value?.find { it.id == id }
+    }
+
+    fun getApiCharacterById(id: Int) {
+        viewModelScope.launch {
+            _loading.value= ApiStatus.LOADING
+            try {
+                repository.getCharacterById(id)
+                _loading.value = ApiStatus.DONE
+            } catch (e: Exception) {
+                Log.e(TAG, "Error loading Data $e")
+            }
+        }
+
     }
 
 

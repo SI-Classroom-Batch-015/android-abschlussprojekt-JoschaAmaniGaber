@@ -1,5 +1,6 @@
 package com.example.rickandmortyguide
 
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,5 +17,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
 
+        val animHeader: AnimationDrawable = binding.ivRickHeader.background as AnimationDrawable
+
+        animHeader.setEnterFadeDuration(8)
+        animHeader.setExitFadeDuration(1111)
+        animHeader.start()
+
     }
+
 }

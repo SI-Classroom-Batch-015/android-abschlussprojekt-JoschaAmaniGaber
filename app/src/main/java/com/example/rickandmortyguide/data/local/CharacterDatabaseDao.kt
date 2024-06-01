@@ -1,6 +1,7 @@
 package com.example.rickandmortyguide.data.local
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -15,6 +16,9 @@ interface CharacterDatabaseDao {
 
     @Query("select * from Character")
     fun getAll(): LiveData<List<Character>>
+
+    @Query("select * from Character where id = :key")
+    fun getCharacterById(key: Int) : LiveData<Character>
 
     @Query("delete from Character")
     suspend fun deleteAll()
