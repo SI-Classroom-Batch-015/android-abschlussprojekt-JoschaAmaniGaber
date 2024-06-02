@@ -5,25 +5,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/morty"
+    android:background="@color/primary"
     tools:context=".MainActivity">
 
-
-    <ImageView
-        android:id="@+id/iv_rick_header"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_rick_header"
         android:layout_width="match_parent"
-        android:layout_height="108dp"
-        android:src="@drawable/rick_and_morty"
-        android:background="@drawable/card_border"
-        android:layout_margin="8dp"
-        android:padding="8dp"
-        android:scaleType="fitCenter"
-        android:elevation="8dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/anim_gradient_header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/fragmentContainerView"/>
+        app:layout_constraintBottom_toTopOf="@id/fragmentContainerView">
 
+        <ImageView
+            android:id="@+id/iv_rick_header"
+            android:layout_width="match_parent"
+            android:layout_height="108dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/card_border"
+            android:elevation="8dp"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/rick_and_morty"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
@@ -33,7 +43,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_rick_header"
+        app:layout_constraintTop_toBottomOf="@id/cl_rick_header"
         />
 
 

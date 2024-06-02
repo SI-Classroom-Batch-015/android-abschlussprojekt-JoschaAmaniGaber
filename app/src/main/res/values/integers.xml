@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="anim_status_alive">888</integer>
+    <integer name="anim_status_alive">3333</integer>
     <integer name="anim_scale_up">888</integer>
     <integer name="anim_scale_down">888</integer>
 </resources>

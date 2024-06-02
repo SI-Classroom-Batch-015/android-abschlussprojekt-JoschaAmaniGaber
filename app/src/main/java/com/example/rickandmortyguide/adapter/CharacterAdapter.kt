@@ -34,8 +34,8 @@ class CharacterAdapter(
                 }
 
                 val anim_bg: AnimationDrawable = binding.statusBackground.background as AnimationDrawable
-                anim_bg.setEnterFadeDuration(33)
-                anim_bg.setExitFadeDuration(888)
+                anim_bg.setEnterFadeDuration(8)
+                anim_bg.setExitFadeDuration(3333)
                 anim_bg.start()
 
             }
