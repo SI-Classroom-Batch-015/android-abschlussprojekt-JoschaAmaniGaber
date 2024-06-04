@@ -11,4 +11,10 @@
     <string name="rick_morty"><![CDATA[Rick & Morty]]></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="iv_character_detail">ImageView Character Detail</string>
+    <string name="species">Species</string>
+    <string name="type">Type</string>
+    <string name="humanoid">Humanoid</string>
+    <string name="rick_s_toxic_side">Rick\'s Toxic Side</string>
+    <string name="load_characters">Load Characters</string>
 </resources>

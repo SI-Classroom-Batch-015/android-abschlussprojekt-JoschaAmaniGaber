@@ -19,7 +19,7 @@
     <color name="grad_alive_center">#F8F8F8</color>
     <color name="grad_alive_end">#88F888</color>
 
-    <color name="grad_header_start">#F8F8F8</color>
+    <color name="grad_header_start">#BFDE42</color>
     <color name="grad_header_center">#F8F8F8</color>
     <color name="grad_header_center_b">#42B4CA</color>
     <color name="grad_header_end">#42B4CA</color>

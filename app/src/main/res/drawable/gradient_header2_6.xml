@@ -3,17 +3,16 @@
 
     <gradient
         android:startColor="@color/grad_header_start"
-        android:centerColor="@color/grad_header_center"
         android:endColor="@color/grad_header_end"
-        android:angle="180"/>
+        android:angle="225"/>
 
     <corners
         android:radius="8dp" />
 
     <stroke
-        android:color="@color/morty"
+        android:color="@color/rick"
         android:width="2dp"
-        android:dashGap="4dp"
-        android:dashWidth="4dp"/>
+        android:dashGap="16dp"
+        android:dashWidth="16dp"/>
 
 </shape>
