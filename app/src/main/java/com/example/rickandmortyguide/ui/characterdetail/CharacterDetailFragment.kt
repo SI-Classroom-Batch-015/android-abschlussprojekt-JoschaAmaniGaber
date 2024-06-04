@@ -28,16 +28,6 @@ class CharacterDetailFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val animIvBg: AnimationDrawable = binding.root.background as AnimationDrawable
-        val animDetailStatus: AnimationDrawable = binding.animChDetailStatus.background as AnimationDrawable
-
-        val animList: List<AnimationDrawable> = listOf(animIvBg, animDetailStatus)
-        repeat(animList.size) {
-            animList[it].setEnterFadeDuration(3333)
-            animList[it].setExitFadeDuration(3333)
-            animList[it].start()
-        }
-
         viewModel.selectedCharacter.observe(viewLifecycleOwner) { selectedCharacter ->
 
             selectedCharacter?.let { character ->
@@ -51,6 +41,27 @@ class CharacterDetailFragment: Fragment() {
             }
         }
 
+        startAnimations()
 
+    }
+
+    private fun startAnimations() {
+
+        val animChIvBg: AnimationDrawable = binding.root.background as AnimationDrawable
+        val animChDetailStatus: AnimationDrawable = binding.animChDetailStatus.background as AnimationDrawable
+        val animChDetailName: AnimationDrawable = binding.animChDetailName.background as AnimationDrawable
+        val animChDetails: AnimationDrawable = binding.animChDetail.background as AnimationDrawable
+
+        val animList: List<AnimationDrawable> = listOf(
+            animChIvBg,
+            animChDetailStatus,
+            animChDetails,
+            animChDetailName)
+
+        repeat(animList.size) {
+            animList[it].setEnterFadeDuration(3)
+            animList[it].setExitFadeDuration(3333)
+            animList[it].start()
+        }
     }
 }

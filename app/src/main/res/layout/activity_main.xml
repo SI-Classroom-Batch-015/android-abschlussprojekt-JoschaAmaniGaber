@@ -26,7 +26,7 @@
         android:layout_height="24dp"
         android:layout_marginBottom="8dp"
         android:padding="4dp"
-        android:background="@drawable/anim_prime"
+        android:background="@drawable/anim_amani_dunia"
         android:src="@drawable/amani_dunia_apps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

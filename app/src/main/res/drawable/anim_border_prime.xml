@@ -2,11 +2,11 @@
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:drawable="@drawable/card_border_prime"
+        android:drawable="@drawable/card_border_prime_prime"
         android:duration="@integer/anim_status_alive" />
 
     <item
-        android:drawable="@drawable/card_border_seco"
+        android:drawable="@drawable/card_border_prime_seco"
         android:duration="@integer/anim_status_alive" />
 
 </animation-list>

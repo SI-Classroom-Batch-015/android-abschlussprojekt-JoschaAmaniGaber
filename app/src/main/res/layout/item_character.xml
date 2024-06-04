@@ -7,7 +7,7 @@
     android:layout_margin="8dp"
     android:clickable="true"
     android:focusable="true"
-    android:background="@drawable/anim_border">
+    android:background="@drawable/anim_border_no_bg">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mcv_character"

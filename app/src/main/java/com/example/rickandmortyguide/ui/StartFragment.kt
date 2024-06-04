@@ -31,11 +31,11 @@ class StartFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bg_anim()
-
-        binding.animRick.visibility = View.GONE
-        binding.ivRick.visibility = View.GONE
-        binding.button.visibility = View.VISIBLE
+        binding.apply {
+            animRick.visibility = View.GONE
+            ivRick.visibility = View.GONE
+            button.visibility = View.VISIBLE
+        }
 
         viewModel.loading.observe(viewLifecycleOwner) {
 
@@ -46,7 +46,6 @@ class StartFragment: Fragment() {
                         ivRick.visibility = View.GONE
                     }
 
-
                 ApiStatus.DONE -> binding.apply {
                         animRick.pauseAnimation()
                         animRick.visibility = View.GONE
@@ -54,17 +53,16 @@ class StartFragment: Fragment() {
                         ivRick.visibility = View.VISIBLE
                     }
 
-
                 ApiStatus.ERROR -> binding.apply {
                     binding.animRick.visibility = View.GONE
                     binding.ivRick.visibility = View.GONE
                     toast = Toast.makeText(requireContext(), "Could not load Data.", Toast.LENGTH_LONG)
                     toast?.show()
-
                 }
-
             }
         }
+
+        startAnimation()
 
         binding.apply {
             button.setOnClickListener {
@@ -81,7 +79,7 @@ class StartFragment: Fragment() {
         }
     }
 
-    private fun bg_anim() {
+    private fun startAnimation() {
         val animHeader: AnimationDrawable = binding.ivRick.background as AnimationDrawable
         animHeader.setEnterFadeDuration(8)
         animHeader.setExitFadeDuration(888)
