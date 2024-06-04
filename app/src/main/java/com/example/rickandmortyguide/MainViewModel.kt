@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortyguide.data.Repository
 import com.example.rickandmortyguide.data.local.getDatabase
+import com.example.rickandmortyguide.data.model.Character
 import com.example.rickandmortyguide.data.remote.ApiStatus
 import com.example.rickandmortyguide.data.remote.RickApi
 import kotlinx.coroutines.launch
@@ -24,15 +25,16 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
 
     val characters = repository.characters
 
-    init {
-        loadCharacters()
-    }
+    private var _selectedCharacter = MutableLiveData<Character?>()
+    val selectedCharacter: LiveData<Character?> get() = _selectedCharacter
 
-    private fun loadCharacters() {
+
+    fun loadCharacters() {
         viewModelScope.launch {
             _loading.value = ApiStatus.LOADING
             try {
                 repository.loadCharacters()
+                repository.loadCharactersPage()
                 _loading.value = ApiStatus.DONE
             } catch (e: Exception) {
                 Log.e(TAG, "Error loading Data $e")
@@ -47,5 +49,25 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+//    fun loadCharactersPages() {
+//        viewModelScope.launch {
+//            _loading.value = ApiStatus.LOADING
+//            try {
+//                repository.loadCharactersPage()
+//                _loading.value = ApiStatus.DONE
+//            } catch (e:Exception) {
+//                Log.e(TAG, "Error loading Data $e")
+//                if (characters.value.isNullOrEmpty()) {
+//                    _loading.value = ApiStatus.ERROR
+//                } else {
+//                    _loading.value = ApiStatus.DONE
+//                }
+//            }
+//        }
+//    }
+
+    fun setSelectedCharacter(character: Character) {
+        _selectedCharacter.value = character
+    }
 
 }

@@ -3,15 +3,19 @@ package com.example.rickandmortyguide.adapter
 import android.annotation.SuppressLint
 import android.graphics.drawable.AnimationDrawable
 import android.view.LayoutInflater
+import android.view.View.OnClickListener
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.rickandmortyguide.data.model.Character
 import com.example.rickandmortyguide.databinding.ItemCharacterBinding
 import com.example.rickandmortyguide.ui.MainViewModel
+import com.example.rickandmortyguide.ui.character.CharacterFragmentDirections
 
 class CharacterAdapter(
     private var characters: List<Character>,
+    private val onSelectCharacter: (Character) -> Unit
 ) : RecyclerView.Adapter<CharacterAdapter.CharacterItemHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
@@ -20,29 +24,7 @@ class CharacterAdapter(
         notifyDataSetChanged()
     }
 
-    inner class CharacterItemHolder(
-        private val binding: ItemCharacterBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(character: Character) {
-            binding.apply {
-                val character: Character = character
-                ivCharacter.load(character.image)
-                tvCharacterName.text = character.name
-                itemView.setOnClickListener {
-
-                }
-
-                val anim_bg: AnimationDrawable = binding.statusBackground.background as AnimationDrawable
-                anim_bg.setEnterFadeDuration(8)
-                anim_bg.setExitFadeDuration(3333)
-                anim_bg.start()
-
-            }
-
-
-        }
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterItemHolder {
         val context = parent.context
@@ -57,4 +39,33 @@ class CharacterAdapter(
         val character = characters[position]
         holder.bind(character)
     }
+
+    inner class CharacterItemHolder(
+        private val binding: ItemCharacterBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(character: Character) = binding.apply {
+            val character: Character = character
+            ivCharacter.load(character.image)
+            tvCharacterName.text = character.name
+
+            clItemClickable.setOnClickListener {
+                onSelectCharacter(character)
+            }
+
+            val anim_status: AnimationDrawable = binding.root.background as AnimationDrawable
+            anim_status.setEnterFadeDuration(8)
+            anim_status.setExitFadeDuration(3333)
+            anim_status.start()
+
+            val anim_bg: AnimationDrawable = binding.statusBackground.background as AnimationDrawable
+            anim_bg.setEnterFadeDuration(8)
+            anim_bg.setExitFadeDuration(3333)
+            anim_bg.start()
+
+            }
+
+
+        }
+
 }

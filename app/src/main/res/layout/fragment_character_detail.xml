@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/anim_gradient_status_alive">
+
+    <ImageView
+        android:id="@+id/iv_ch_detail_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.33"
+        android:background="@color/transparent"
+        android:contentDescription="@string/iv_character_detail"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rick" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_character_detail_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/transparent"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toTopOf="@id/mcv_ch_detail_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/secondary"
+        app:strokeWidth="2dp">
+
+        <ImageView
+            android:id="@+id/iv_ch_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/anim_gradient_status_alive"
+            android:contentDescription="@string/iv_character_detail"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/rick" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/anim_ch_detail_status"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/anim_gradient_status_alive">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_ch_detail_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="@color/transparent"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/mcv_ch_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cv_character_detail_image"
+        app:strokeColor="@color/secondary"
+        app:strokeWidth="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/anim_ch_detail_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/anim_gradient_status_alive">
+
+            <TextView
+                android:id="@+id/tv_ch_detail_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="8dp"
+                android:gravity="center"
+                android:text="@string/character_name"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_ch_detail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mcv_ch_detail_name"
+        app:strokeColor="@color/secondary"
+        app:strokeWidth="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/species"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@string/species"
+                android:textColor="@color/gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_ch_detail_species"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/humanoid"
+                android:textColor="@color/secondary"
+                android:textSize="21sp"
+                app:layout_constraintEnd_toEndOf="@+id/species"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/species"
+                app:layout_constraintTop_toBottomOf="@id/species" />
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/type"
+                android:textColor="@color/gray"
+                app:layout_constraintEnd_toEndOf="@+id/tv_ch_detail_species"
+                app:layout_constraintStart_toStartOf="@+id/tv_ch_detail_species"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ch_detail_species" />
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/rick_s_toxic_side"
+                android:textColor="@color/secondary"
+                android:textSize="21sp"
+                app:layout_constraintEnd_toEndOf="@+id/type"
+                app:layout_constraintStart_toStartOf="@+id/type"
+                app:layout_constraintTop_toBottomOf="@+id/type" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
