@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@drawable/gradient_prime_1"
+        android:duration="@integer/anim_amani_dunia" />
+
+    <item
+        android:drawable="@drawable/gradient_prime_2"
+        android:duration= "@integer/anim_amani_dunia" />
+
+    <item
+        android:drawable="@drawable/gradient_prime_3"
+        android:duration= "@integer/anim_amani_dunia" />
+
+    <item
+        android:drawable="@drawable/gradient_prime_4"
+        android:duration= "@integer/anim_amani_dunia" />
+
+    <item
+        android:drawable="@drawable/gradient_prime_5"
+        android:duration= "@integer/anim_amani_dunia" />
+
+    <item
+        android:drawable="@drawable/gradient_prime_6"
+        android:duration= "@integer/anim_amani_dunia" />
+
+    <item
+        android:drawable="@drawable/gradient_prime_7"
+        android:duration= "@integer/anim_amani_dunia" />
+
+    <item
+        android:drawable="@drawable/gradient_prime_8"
+        android:duration= "@integer/anim_amani_dunia" />
+
+
+</animation-list>

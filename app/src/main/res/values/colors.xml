@@ -15,14 +15,19 @@
     <color name="primary">#F8F8F8</color>
     <color name="secondary">#181818</color>
 
-    <color name="grad_alive_start">#88F888</color>
-    <color name="grad_alive_center">#F8F8F8</color>
-    <color name="grad_alive_end">#88F888</color>
+    <color name="grad_start_alive">#F8F8F8</color>
+    <color name="grad_center_alive">#F8F8F8</color>
+    <color name="grad_end_alive">#88F888</color>
 
-    <color name="grad_header_start">#BFDE42</color>
-    <color name="grad_header_center">#F8F8F8</color>
-    <color name="grad_header_center_b">#42B4CA</color>
-    <color name="grad_header_end">#42B4CA</color>
+    <color name="grad_start_header">#BFDE42</color>
+    <color name="grad_center_header">#F8F8F8</color>
+    <color name="grad_center_header_b">#42B4CA</color>
+    <color name="grad_end_header">#42B4CA</color>
+
+    <color name="grad_start_prime">#00F8F8F8</color>
+    <color name="grad_center_prime">#181818</color>
+    <color name="grad_center_prime_b">#00F8F8F8</color>
+    <color name="grad_end_prime">#00F8F8F8</color>
 
     <color name="red">#A9190E</color>
     <color name="green">#88F888</color>
