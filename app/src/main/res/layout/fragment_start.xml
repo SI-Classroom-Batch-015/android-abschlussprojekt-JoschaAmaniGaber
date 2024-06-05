@@ -77,24 +77,13 @@
         app:layout_constraintTop_toBottomOf="@+id/mc_rick"
         app:lottie_rawRes="@raw/popcorn" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottie_syntax"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/syntax_logo_anim_white" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_panda"
-        android:layout_width="0dp"
+        android:layout_width="222dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/mc_rick"
-        app:layout_constraintEnd_toStartOf="@id/lottie_syntax"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mc_rick"
         app:layout_constraintTop_toTopOf="parent"
