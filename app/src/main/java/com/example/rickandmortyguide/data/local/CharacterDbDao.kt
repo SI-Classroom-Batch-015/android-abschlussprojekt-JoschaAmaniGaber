@@ -8,14 +8,15 @@ import androidx.room.Query
 import com.example.rickandmortyguide.data.model.Character
 
 @Dao
-interface CharacterDatabaseDao {
+interface CharacterDbDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(characters: List<Character>)
+    suspend fun insertAllCharacters(characters: List<Character>)
 
     @Query("select * from Character")
-    fun getAll(): LiveData<List<Character>>
+    fun getAllCharacters(): LiveData<List<Character>>
 
     @Query("delete from Character")
     suspend fun deleteAll()
+
 }

@@ -12,7 +12,7 @@ import androidx.navigation.Navigation
 import com.example.rickandmortyguide.data.remote.ApiStatus
 import com.example.rickandmortyguide.databinding.FragmentStartBinding
 
-class StartFragment: Fragment() {
+class StartFragment : Fragment() {
 
     private lateinit var binding: FragmentStartBinding
     private val viewModel: MainViewModel by activityViewModels()
@@ -32,41 +32,69 @@ class StartFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            animRick.visibility = View.GONE
-            ivRick.visibility = View.GONE
+            mcRick.visibility = View.INVISIBLE
+            ivRick.isClickable = false
             button.visibility = View.VISIBLE
+            lottieRick.visibility = View.GONE
+            lottiePopcorn.visibility = View.GONE
+            lottiePanda.visibility = View.GONE
+            lottiePanda.playAnimation()
         }
 
         viewModel.loading.observe(viewLifecycleOwner) {
 
             when (it) {
-                ApiStatus.LOADING -> binding.apply {
-                        animRick.visibility = View.VISIBLE
-                        animRick.playAnimation()
-                        ivRick.visibility = View.GONE
-                    }
+                ApiStatus.LOADINGCHARACTERS -> binding.apply {
+                    lottieRick.visibility = View.VISIBLE
+                    lottieRick.playAnimation()
+                    button.visibility = View.GONE
+                }
 
-                ApiStatus.DONE -> binding.apply {
-                        animRick.pauseAnimation()
-                        animRick.visibility = View.GONE
-                        button.visibility = View.GONE
-                        ivRick.visibility = View.VISIBLE
-                    }
+                ApiStatus.LOADINGLOCATION -> binding.apply {
+                    lottiePanda.visibility = View.VISIBLE
+                    lottiePanda.playAnimation()
+                }
+
+                ApiStatus.CHARACTERSDONE -> binding.apply {
+                    lottieRick.visibility = View.GONE
+                    mcRick.visibility = View.VISIBLE
+                    ivRick.isClickable = true
+                    toast = Toast.makeText(
+                        requireContext(),
+                        "All Characters Loaded",
+                        Toast.LENGTH_SHORT)
+                    toast?.show()
+                }
+
+                ApiStatus.LOCATIONSDONE -> binding.apply {
+                    lottiePopcorn.visibility = View.VISIBLE
+                    lottiePopcorn.playAnimation()
+                    lottieRick.pauseAnimation()
+                    toast = Toast.makeText(
+                        requireContext(),
+                        "All Locations Loaded",
+                        Toast.LENGTH_SHORT)
+                    toast?.show()
+                }
 
                 ApiStatus.ERROR -> binding.apply {
-                    binding.animRick.visibility = View.GONE
-                    binding.ivRick.visibility = View.GONE
-                    toast = Toast.makeText(requireContext(), "Could not load Data.", Toast.LENGTH_LONG)
+                    lottiePopcorn.visibility = View.GONE
+                    lottiePanda.pauseAnimation()
+                    lottieRick.visibility = View.GONE
+                    toast = Toast.makeText(
+                        requireContext(),
+                        "Could not load Data.",
+                        Toast.LENGTH_SHORT)
                     toast?.show()
                 }
             }
         }
 
-        startAnimation()
+        startAnimBtBg()
 
         binding.apply {
             button.setOnClickListener {
-                viewModel.loadCharacters()
+                viewModel.loadDatabases()
             }
         }
 
@@ -79,10 +107,16 @@ class StartFragment: Fragment() {
         }
     }
 
-    private fun startAnimation() {
-        val animHeader: AnimationDrawable = binding.ivRick.background as AnimationDrawable
-        animHeader.setEnterFadeDuration(8)
-        animHeader.setExitFadeDuration(888)
-        animHeader.start()
+    private fun startAnimBtBg() {
+        val animLogoBt: AnimationDrawable = binding.ivRick.background as AnimationDrawable
+        val animBg: AnimationDrawable = binding.root.background as AnimationDrawable
+        val startAnims: List<AnimationDrawable> = listOf(animLogoBt, animBg)
+        var anim: AnimationDrawable
+        repeat(startAnims.size) {
+            anim = startAnims[it]
+            anim.setEnterFadeDuration(3333)
+            anim.setExitFadeDuration(3333)
+            anim.start()
+        }
     }
 }

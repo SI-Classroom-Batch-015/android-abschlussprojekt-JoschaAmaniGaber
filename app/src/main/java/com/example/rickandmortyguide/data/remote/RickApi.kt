@@ -1,6 +1,7 @@
 package com.example.rickandmortyguide.data.remote
 
 import com.example.rickandmortyguide.data.model.CharacterResults
+import com.example.rickandmortyguide.data.model.LocationResults
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -27,8 +28,11 @@ interface RickApiService {
     @GET("character/")
     suspend fun getCharactersPage(@Query("page") page:Int): CharacterResults
 
-//    @GET("location")
-//    suspend fun getLocations(): LocationResults
+    @GET("location")
+    suspend fun getLocations(): LocationResults
+
+    @GET("location/")
+    suspend fun getAllLocations(@Query("page") page:Int): LocationResults
 
 }
 

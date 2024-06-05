@@ -7,25 +7,24 @@ import androidx.room.RoomDatabase
 import com.example.rickandmortyguide.data.model.Character
 
 @Database(entities = [Character::class], version = 1)
-abstract class CharacterDatabase : RoomDatabase() {
+abstract class CharacterDb : RoomDatabase() {
 
-    abstract val dao: CharacterDatabaseDao
+    abstract val dao: CharacterDbDao
 
 }
 
-private lateinit var INSTANCE: CharacterDatabase
+private lateinit var INSTANCE: CharacterDb
 
-fun getDatabase(context: Context) : CharacterDatabase {
+fun getCharacterDb(context: Context) : CharacterDb {
 
-    synchronized(CharacterDatabase::class.java) {
+    synchronized(CharacterDb::class.java) {
         if (!::INSTANCE.isInitialized) {
 
             INSTANCE = Room.databaseBuilder(
                 context.applicationContext,
-                CharacterDatabase::class.java,
-                "character_database"
+                CharacterDb::class.java,
+                "character_db"
             ).build()
-
         }
         return INSTANCE
     }

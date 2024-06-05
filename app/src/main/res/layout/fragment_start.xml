@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/anim_gradient_header"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mc_rick"
@@ -35,8 +36,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="visible" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -53,15 +53,52 @@
         tools:visibility="visible" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/anim_rick"
+        android:id="@+id/lottie_rick"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:lottie_loop="true"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:background="@color/transparent"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:lottie_loop="true"
         app:lottie_rawRes="@raw/rick_anim" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_popcorn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        app:lottie_loop="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mc_rick"
+        app:lottie_rawRes="@raw/popcorn" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_syntax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/syntax_logo_anim_white" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_panda"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/mc_rick"
+        app:layout_constraintEnd_toStartOf="@id/lottie_syntax"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mc_rick"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/panda_popcorn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
