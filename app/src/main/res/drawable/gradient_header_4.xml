@@ -7,13 +7,4 @@
         android:endColor="@color/grad_end_header"
         android:angle="135"/>
 
-    <corners
-        android:radius="8dp" />
-
-    <stroke
-        android:color="@color/rick"
-        android:width="2dp"
-        android:dashGap="16dp"
-        android:dashWidth="16dp"/>
-
 </shape>

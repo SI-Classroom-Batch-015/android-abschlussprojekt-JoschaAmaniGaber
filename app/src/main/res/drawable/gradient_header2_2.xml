@@ -12,7 +12,6 @@
     <stroke
         android:color="@color/rick"
         android:width="2dp"
-        android:dashGap="16dp"
-        android:dashWidth="16dp"/>
+        />
 
 </shape>
