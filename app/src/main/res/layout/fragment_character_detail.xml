@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/anim_gradient_status_alive">
@@ -103,10 +104,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:shadowColor="@color/rick"
+            android:shadowRadius="1"
             android:text="@string/species"
             android:textColor="@color/gray"
-            android:shadowRadius="1"
-            android:shadowColor="@color/rick"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -115,11 +116,11 @@
             android:id="@+id/tv_ch_detail_species"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:shadowColor="@color/morty"
+            android:shadowRadius="8"
             android:text="@string/humanoid"
             android:textColor="@color/secondary"
             android:textSize="21sp"
-            android:shadowRadius="8"
-            android:shadowColor="@color/morty"
             app:layout_constraintEnd_toEndOf="@+id/species"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/species"
@@ -130,6 +131,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:shadowColor="@color/rick"
+            android:shadowRadius="1"
             android:text="@string/type"
             android:textColor="@color/gray"
             app:layout_constraintEnd_toEndOf="@+id/tv_ch_detail_species"
@@ -140,12 +143,26 @@
             android:id="@+id/tv_type"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:shadowColor="@color/morty"
+            android:shadowRadius="8"
             android:text="@string/rick_s_toxic_side"
             android:textColor="@color/secondary"
             android:textSize="21sp"
             app:layout_constraintEnd_toEndOf="@+id/type"
             app:layout_constraintStart_toStartOf="@+id/type"
             app:layout_constraintTop_toBottomOf="@+id/type" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@+id/type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ch_detail_species" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

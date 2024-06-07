@@ -17,5 +17,5 @@
     <string name="humanoid">Humanoid</string>
     <string name="rick_s_toxic_side">Rick\'s Toxic Side</string>
     <string name="load_characters">Load Characters</string>
-    <string name="download_all_characters">Download all Characters to Database</string>
+    <string name="download_all_data">Download all Data</string>
 </resources>
