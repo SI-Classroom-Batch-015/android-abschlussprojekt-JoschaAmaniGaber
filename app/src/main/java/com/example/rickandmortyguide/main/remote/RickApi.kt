@@ -23,9 +23,6 @@ private val retrofit = Retrofit.Builder()
     .build()
 interface RickApiService {
 
-    @GET("character")
-    suspend fun getCharacters(): CharacterResults
-
     @GET("character/")
     suspend fun getCharactersPage(@Query("page") page:Int): CharacterResults
 

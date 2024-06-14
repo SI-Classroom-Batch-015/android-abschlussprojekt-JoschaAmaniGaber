@@ -7,10 +7,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortyguide.main.Repository
-import com.example.rickandmortyguide.main.local.character.getCharacterDb
-import com.example.rickandmortyguide.main.local.location.getLocationDb
+import com.example.rickandmortyguide.main.local.getRickDb
 import com.example.rickandmortyguide.charcacter.model.Character
-import com.example.rickandmortyguide.main.local.episode.getEpisodesDb
 import com.example.rickandmortyguide.main.remote.ApiStatus
 import com.example.rickandmortyguide.main.remote.RickApi
 import kotlinx.coroutines.launch
@@ -19,10 +17,8 @@ const val TAG = "MainViewModel"
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val characterDb = getCharacterDb(application)
-    private val locationDb = getLocationDb(application)
-    private val episodeDb = getEpisodesDb(application)
-    private val repository = Repository(RickApi, characterDb, locationDb, episodeDb)
+    private val rickDb = getRickDb(application)
+    private val repository = Repository(RickApi, rickDb)
 
     private val _loading = MutableLiveData<ApiStatus>()
     val loading: LiveData<ApiStatus> get() = _loading
@@ -54,9 +50,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 } else {
                     _loading.value = ApiStatus.CHARACTERSDONE
                 }
-
             }
-
         }
     }
 
