@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
-    tools:context=".main.MainActivity">
+    tools:context=".ui.MainActivity">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_syntax"
-        android:alpha="0.88"
+        android:alpha="0.53"
         android:layout_margin="8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:elevation="8dp"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
