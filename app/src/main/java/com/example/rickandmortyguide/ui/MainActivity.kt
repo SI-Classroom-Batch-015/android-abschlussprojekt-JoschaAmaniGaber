@@ -2,7 +2,9 @@ package com.example.rickandmortyguide.ui
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import com.example.rickandmortyguide.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +21,12 @@ class MainActivity : AppCompatActivity() {
         amaniDunia.setEnterFadeDuration(8888)
         amaniDunia.setExitFadeDuration(8888)
         amaniDunia.start()
+
+        onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                binding.fragmentContainerView.findNavController().navigateUp()
+            }
+        })
     }
 
 }

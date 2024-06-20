@@ -1,4 +1,4 @@
-package com.example.rickandmortyguide.data.model.info
+package com.example.rickandmortyguide.data.model.api.info
 
 import com.squareup.moshi.Json
 

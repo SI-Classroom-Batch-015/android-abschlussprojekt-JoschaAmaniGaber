@@ -4,15 +4,15 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.rickandmortyguide.data.local.RickDb
-import com.example.rickandmortyguide.data.model.character.Character
-import com.example.rickandmortyguide.data.model.character.CharacterResults
-import com.example.rickandmortyguide.data.model.episode.Episode
-import com.example.rickandmortyguide.data.model.episode.EpisodeResults
-import com.example.rickandmortyguide.data.model.info.InfoCharacter
-import com.example.rickandmortyguide.data.model.info.InfoEpisode
-import com.example.rickandmortyguide.data.model.info.InfoLocation
-import com.example.rickandmortyguide.data.model.location.Location
-import com.example.rickandmortyguide.data.model.location.LocationResults
+import com.example.rickandmortyguide.data.model.enteties.Character
+import com.example.rickandmortyguide.data.model.api.results.CharacterResults
+import com.example.rickandmortyguide.data.model.enteties.Episode
+import com.example.rickandmortyguide.data.model.api.results.EpisodeResults
+import com.example.rickandmortyguide.data.model.api.info.InfoCharacter
+import com.example.rickandmortyguide.data.model.api.info.InfoEpisode
+import com.example.rickandmortyguide.data.model.api.info.InfoLocation
+import com.example.rickandmortyguide.data.model.enteties.Location
+import com.example.rickandmortyguide.data.model.api.results.LocationResults
 import com.example.rickandmortyguide.data.remote.RickApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -42,9 +42,25 @@ class Repository(
         try {
             withContext(Dispatchers.IO) {
                 var resultCharacters: CharacterResults
+                var character: Character
                 do {
                     resultCharacters = service.retrofitService.getCharactersPage(++page)
-                    rickDb.dao.insertAllCharacters(resultCharacters.results)
+                    resultCharacters.results.forEach {
+                        character = Character(
+                            it.id,
+                            it.name,
+                            it.status,
+                            it.species,
+                            it.type,
+                            it.gender,
+                            it.origin,
+                            it.location,
+                            it.image,
+                            it.url,
+                            it.created
+                            )
+                        rickDb.dao.insertCharacter(character)
+                    }
                     _infoCharacter.postValue(resultCharacters.infoCharacter)
                     Log.d(TAG, "Loaded Characters Page: $page")
                 } while (infoCharacter.value?.nextPage != null)

@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortyguide.data.Repository
 import com.example.rickandmortyguide.data.local.getRickDb
-import com.example.rickandmortyguide.data.model.character.Character
+import com.example.rickandmortyguide.data.model.enteties.Character
 import com.example.rickandmortyguide.data.remote.ApiStatus
 import com.example.rickandmortyguide.data.remote.RickApi
 import kotlinx.coroutines.launch

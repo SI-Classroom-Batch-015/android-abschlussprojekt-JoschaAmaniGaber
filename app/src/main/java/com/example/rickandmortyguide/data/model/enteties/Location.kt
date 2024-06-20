@@ -1,4 +1,4 @@
-package com.example.rickandmortyguide.data.model.location
+package com.example.rickandmortyguide.data.model.enteties
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class Location(
     @PrimaryKey(autoGenerate = false)
+    val location_name: String,
     val id: Int,
-    val name: String,
     val type: String,
     val dimension: String,
 //    val residents: List<String>

@@ -1,8 +1,8 @@
 package com.example.rickandmortyguide.data.remote
 
-import com.example.rickandmortyguide.data.model.character.CharacterResults
-import com.example.rickandmortyguide.data.model.episode.EpisodeResults
-import com.example.rickandmortyguide.data.model.location.LocationResults
+import com.example.rickandmortyguide.data.model.api.results.CharacterResults
+import com.example.rickandmortyguide.data.model.api.results.EpisodeResults
+import com.example.rickandmortyguide.data.model.api.results.LocationResults
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
