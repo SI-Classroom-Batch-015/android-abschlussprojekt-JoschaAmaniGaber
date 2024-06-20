@@ -4,10 +4,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.rickandmortyguide.data.local.RickDb
-import com.example.rickandmortyguide.data.model.character.Character
+import com.example.rickandmortyguide.data.model.entities.Character
+import com.example.rickandmortyguide.data.model.character.CharacterFromApi
 import com.example.rickandmortyguide.data.model.character.CharacterResults
-import com.example.rickandmortyguide.data.model.episode.Episode
-import com.example.rickandmortyguide.data.model.episode.EpisodeResults
+import com.example.rickandmortyguide.data.model.entities.Episode
+import com.example.rickandmortyguide.data.model.entities.extractIdFromLocationUrl
+import com.example.rickandmortyguide.data.model.results.EpisodeResults
 import com.example.rickandmortyguide.data.model.info.InfoCharacter
 import com.example.rickandmortyguide.data.model.info.InfoEpisode
 import com.example.rickandmortyguide.data.model.info.InfoLocation

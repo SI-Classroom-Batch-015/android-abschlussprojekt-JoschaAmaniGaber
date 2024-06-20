@@ -36,7 +36,8 @@ class CharacterDetailFragment: Fragment() {
                     ivChDetailBackground.load(character.image)
                     tvChDetailName.text = character.name
                     tvChDetailSpecies.text = character.species
-                    tvType.text = character.type
+                    if (character.type == "") tvType.text = "Keep It Real"
+                    else tvType.text = character.type
                 }
             }
         }

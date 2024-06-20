@@ -1,4 +1,4 @@
-package com.example.rickandmortyguide.data.model.episode
+package com.example.rickandmortyguide.data.model.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

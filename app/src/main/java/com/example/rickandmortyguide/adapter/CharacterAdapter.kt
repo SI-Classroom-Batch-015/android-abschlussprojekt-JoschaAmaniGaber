@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.example.rickandmortyguide.data.model.character.Character
+import com.example.rickandmortyguide.data.model.entities.Character
 import com.example.rickandmortyguide.databinding.ItemCharacterBinding
 
 class CharacterAdapter(
@@ -44,7 +44,6 @@ class CharacterAdapter(
             val character: Character = character
             ivCharacter.load(character.image)
             tvCharacterName.text = character.name
-
             clItemClickable.setOnClickListener {
                 onSelectCharacter(character)
             }

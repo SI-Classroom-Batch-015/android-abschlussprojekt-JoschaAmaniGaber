@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.rickandmortyguide.data.model.character.Character
-import com.example.rickandmortyguide.data.model.episode.Episode
+import com.example.rickandmortyguide.data.model.entities.Character
+import com.example.rickandmortyguide.data.model.entities.Episode
 import com.example.rickandmortyguide.data.model.location.Location
 
 @Database(entities = [Character::class, Episode::class, Location::class], version = 1)

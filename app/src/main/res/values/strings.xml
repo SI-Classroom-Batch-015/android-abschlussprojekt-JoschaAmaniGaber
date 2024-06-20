@@ -18,4 +18,6 @@
     <string name="rick_s_toxic_side">Rick\'s Toxic Side</string>
     <string name="load_characters">Load Characters</string>
     <string name="download_all_data">Download all Data</string>
+    <string name="bt_start_rick">Button Start Rick</string>
+    <string name="btn_start_amani">Button Start Amani\n</string>
 </resources>

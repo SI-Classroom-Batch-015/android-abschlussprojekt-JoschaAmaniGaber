@@ -1,7 +1,7 @@
-package com.example.rickandmortyguide.data.model.episode
+package com.example.rickandmortyguide.data.model.results
 
+import com.example.rickandmortyguide.data.model.entities.Episode
 import com.example.rickandmortyguide.data.model.info.InfoEpisode
-import com.example.rickandmortyguide.data.model.info.InfoLocation
 import com.squareup.moshi.Json
 
 

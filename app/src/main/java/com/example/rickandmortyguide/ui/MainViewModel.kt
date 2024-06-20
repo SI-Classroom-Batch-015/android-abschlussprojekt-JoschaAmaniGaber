@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.rickandmortyguide.data.Repository
 import com.example.rickandmortyguide.data.local.getRickDb
-import com.example.rickandmortyguide.data.model.character.Character
+import com.example.rickandmortyguide.data.model.entities.Character
 import com.example.rickandmortyguide.data.remote.ApiStatus
 import com.example.rickandmortyguide.data.remote.RickApi
 import kotlinx.coroutines.launch
@@ -48,7 +48,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 if (characters.value.isNullOrEmpty()) {
                     _loading.value = ApiStatus.ERROR
                 } else {
-                    _loading.value = ApiStatus.CHARACTERSDONE
+                    _loading.value = ApiStatus.CHARACTERSDB
                 }
 
             }

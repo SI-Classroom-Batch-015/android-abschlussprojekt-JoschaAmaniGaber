@@ -89,6 +89,15 @@ class StartFragment : Fragment() {
                     toast?.show()
                 }
 
+                ApiStatus.CHARACTERSDB -> {
+                    toast = Toast.makeText(
+                        requireContext(),
+                        "Data loaded from Database",
+                        Toast.LENGTH_LONG
+                    )
+                    toast?.show()
+                    ApiStatus.CHARACTERSDONE
+                }
 //                ApiStatus.LOADINGEPISODES -> binding.apply {
 //                    lottieStar.visibility = View.VISIBLE
 //                    lottieStar.playAnimation()
@@ -101,6 +110,7 @@ class StartFragment : Fragment() {
 //                        Toast.LENGTH_SHORT)
 //                    toast?.show()
 //                }
+
             }
         }
 

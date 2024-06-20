@@ -5,8 +5,9 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.rickandmortyguide.data.model.character.Character
-import com.example.rickandmortyguide.data.model.episode.Episode
+import androidx.room.Transaction
+import com.example.rickandmortyguide.data.model.entities.Character
+import com.example.rickandmortyguide.data.model.entities.Episode
 import com.example.rickandmortyguide.data.model.location.Location
 
 @Dao
@@ -21,6 +22,7 @@ interface RickDbDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllEpisodes(episodes: List<Episode>)
 
+    @Transaction
     @Query("select * from Character")
     fun getAllCharacters(): LiveData<List<Character>>
 
